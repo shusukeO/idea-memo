@@ -10,5 +10,10 @@
   <%= @memo.content %>
 </p>
 
+<%# コメントアウト %>
+<% if false %>
 <%= link_to 'Edit', edit_memo_path(@memo) %> |
+<%= link_to 'Back', memos_path %>
+<% end %>
+
 <%= link_to 'Back', memos_path %>
