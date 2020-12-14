@@ -2,5 +2,10 @@
 
 <%= render 'form', memo: @memo %>
 
+<%# コメントアウト %>
+<% if false %>
 <%= link_to 'Show', @memo %> |
+<%= link_to 'Back', memos_path %>
+<% end %>
+
 <%= link_to 'Back', memos_path %>
