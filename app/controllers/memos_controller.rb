@@ -1,5 +1,14 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
+  def ensure_correct_user
+    @memo = Memo.find(params[:id])
+     unless @memo.user == current_user
+     redirect_to action: :index
+   end
+  end
+
 
   # GET /memos
   # GET /memos.json
@@ -25,6 +34,7 @@ class MemosController < ApplicationController
   # POST /memos.json
   def create
     @memo = Memo.new(memo_params)
+    @memo.user_id = current_user.id
 
     respond_to do |format|
       if @memo.save

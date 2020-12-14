@@ -5,20 +5,39 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+- Ruby version
 
-* System dependencies
+- System dependencies
 
-* Configuration
+- Configuration
 
-* Database creation
+- Database creation
 
-* Database initialization
+- Database initialization
 
-* How to run the test suite
+- How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+- Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+- Deployment instructions
 
-* ...
+- ...
+
+## 参考文献
+
+- erb ファイルのコメントアウト。複数行コメントアウトがこれでできる。 http://rails.takayukikoyama.com/erb/erb-comment/
+
+```erb
+<% if false %>
+コメントです。表示されません。
+<%= @model.data %>
+<% end %>
+```
+
+- ログインユーザによって表示を分ける。 create の際に自動で紐付けて、index での一覧表示の際に表示を制限し、url 直叩きで他人の投稿を edit 等されるのを防ぐ https://note.com/eugenenzv8/n/n48983aa56896
+
+- redirect_to について https://pikawaka.com/rails/redirect_to
+
+```rb
+redirect_to  controller: :モデル名, action: :indexとか
+```
