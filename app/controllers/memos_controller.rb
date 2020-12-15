@@ -28,6 +28,7 @@ class MemosController < ApplicationController
 
   # GET /memos/1/edit
   def edit
+    @memos = Memo.all
   end
 
   # POST /memos
