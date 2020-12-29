@@ -5,7 +5,6 @@
   <tbody>
     <% @memos.each do |memo| %>
       <tr>
-        <td><%= memo.user.email %></td>
           <td><%= memo.content %></td>
           <td><%= link_to 'Edit', edit_memo_path(memo) %></td>
           <td><%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
