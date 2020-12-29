@@ -13,7 +13,7 @@ class MemosController < ApplicationController
   # GET /memos
   # GET /memos.json
   def index
-    @memos = Memo.all
+    @memos = Memo.where(user_id: current_user.id)
   end
 
   # GET /memos/1

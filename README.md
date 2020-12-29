@@ -41,3 +41,9 @@ Things you may want to cover:
 ```rb
 redirect_to  controller: :モデル名, action: :indexとか
 ```
+
+- where でユーザのデータ取得 https://qiita.com/nakayuu07/items/3d5e2f8784b6f18186f2
+
+```rb
+@memos = Memo.where(user_id: current_user.id)
+```
