@@ -1,12 +1,9 @@
-<h1>メモ一覧</h1>
-
 <table>
 
   <tbody>
     <% @memos.each do |memo| %>
       <tr>
-          <td><%= memo.content %></td>
-          <td><%= link_to 'Edit', edit_memo_path(memo) %></td>
+          <td><%= link_to memo.content, edit_memo_path(memo) %></td>
           <td><%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         
       </tr>
