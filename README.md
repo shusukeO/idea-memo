@@ -47,3 +47,9 @@ redirect_to  controller: :モデル名, action: :indexとか
 ```rb
 @memos = Memo.where(user_id: current_user.id)
 ```
+
+- BootStrap samples https://getbootstrap.com/docs/4.3/examples/
+
+- 上のメニューバーテンプレート https://getbootstrap.com/docs/4.3/examples/pricing/
+
+- Devise への Bootstrap の適用 https://url4u.jp/rails-523-devise-bootstrap/
