@@ -48,6 +48,8 @@ redirect_to  controller: :モデル名, action: :indexとか
 @memos = Memo.where(user_id: current_user.id)
 ```
 
+- rails に Bootstrap4 導入 https://freesworder.net/rails-bootstrap/
+
 - BootStrap samples https://getbootstrap.com/docs/4.3/examples/
 
 - 上のメニューバーテンプレート https://getbootstrap.com/docs/4.3/examples/pricing/
