@@ -68,3 +68,9 @@ redirect_to  controller: :モデル名, action: :indexとか
 ```
 
 Destroy はこんな感じで書いた。アイコン付き。
+
+- Bootstrap カラムの縦積みで、縦に余白をもたせる https://tonari-it.com/column-margin/
+
+```erb
+<div class="col-sm-3"　style="margin-bottom:10px;">
+```
