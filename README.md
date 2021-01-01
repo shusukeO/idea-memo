@@ -85,3 +85,5 @@ style="display: flex; justify-content: space-between;"
 - db 確認 https://qiita.com/kouuuki/items/b6e1a4318d8feee24c9f
 
 - 日本時間で作成日表示 https://qiita.com/jnchito/items/831654253fb8a958ec25
+
+- footer の css https://www.tipdip.jp/tips_posts/production/2213/
