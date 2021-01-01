@@ -74,3 +74,10 @@ Destroy はこんな感じで書いた。アイコン付き。
 ```erb
 <div class="col-sm-3"　style="margin-bottom:10px;">
 ```
+
+- css 横並び両端寄せ https://infoteck-life.com/a0366-css-left-right/
+  一個上の階層にこれを書くだけで ok
+
+```html
+style="display: flex; justify-content: space-between;"
+```
