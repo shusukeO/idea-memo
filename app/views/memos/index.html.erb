@@ -12,7 +12,7 @@
         </div>
         <div class="card-footer text-muted" style="display: flex;  justify-content: space-between;">
           <div>
-            2 days ago
+            <%= memo.created_at.strftime('%Y/%m/%d %H:%M') %>
           </div>
           <%= button_to memo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary' do%>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
