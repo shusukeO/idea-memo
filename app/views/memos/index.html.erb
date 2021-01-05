@@ -1,5 +1,5 @@
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     
     <% @memos.each do |memo| %>
@@ -12,7 +12,7 @@
         </div>
         <div class="card-footer text-muted" style="display: flex;  justify-content: space-between;">
           <div>
-            <%= memo.created_at.strftime('%Y/%m/%d %H:%M') %>
+            <%= memo.created_at.strftime('%Y/%m/%d') %>
           </div>
           <%= button_to memo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-info' do%>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
