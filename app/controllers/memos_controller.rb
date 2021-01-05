@@ -24,6 +24,7 @@ class MemosController < ApplicationController
   # GET /memos/new
   def new
     @memo = Memo.new
+    @memos = Memo.all
   end
 
   # GET /memos/1/edit
@@ -39,7 +40,7 @@ class MemosController < ApplicationController
 
     respond_to do |format|
       if @memo.save
-        format.html { redirect_to @memo, notice: 'Memo was successfully created.' }
+        format.html { redirect_to action: :index, notice: 'Memo was successfully created.' }
         format.json { render :show, status: :created, location: @memo }
       else
         format.html { render :new }
@@ -53,7 +54,7 @@ class MemosController < ApplicationController
   def update
     respond_to do |format|
       if @memo.update(memo_params)
-        format.html { redirect_to @memo, notice: 'Memo was successfully updated.' }
+        format.html { redirect_to action: :index, notice: 'Memo was successfully updated.' }
         format.json { render :show, status: :ok, location: @memo }
       else
         format.html { render :edit }
