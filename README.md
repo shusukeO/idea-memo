@@ -87,3 +87,5 @@ style="display: flex; justify-content: space-between;"
 - 日本時間で作成日表示 https://qiita.com/jnchito/items/831654253fb8a958ec25
 
 - footer の css https://www.tipdip.jp/tips_posts/production/2213/
+
+- textare の css https://developer.mozilla.org/ja/docs/Web/HTML/Element/textarea
