@@ -89,3 +89,7 @@ style="display: flex; justify-content: space-between;"
 - footer の css https://www.tipdip.jp/tips_posts/production/2213/
 
 - textare の css https://developer.mozilla.org/ja/docs/Web/HTML/Element/textarea
+
+- rails6 jquery 導入。今回は昔ながらの assets に入れる方法を選択。 https://qiita.com/kazutosato/items/d47b7705ee545de4cb1a
+
+- ↑ これにアセットをコンパイルするようにしなければならない https://qiita.com/sanriyochan/items/99d63e8a8691eb29fa4c
