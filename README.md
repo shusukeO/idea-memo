@@ -93,3 +93,5 @@ style="display: flex; justify-content: space-between;"
 - rails6 jquery 導入。今回は昔ながらの assets に入れる方法を選択。 https://qiita.com/kazutosato/items/d47b7705ee545de4cb1a
 
 - ↑ これにアセットをコンパイルするようにしなければならない https://qiita.com/sanriyochan/items/99d63e8a8691eb29fa4c
+
+- rails + jquery インクリメンタルサーチ https://pikawaka.com/rails/ajax-jquery

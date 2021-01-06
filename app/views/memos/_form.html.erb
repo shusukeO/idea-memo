@@ -1,33 +1,42 @@
-<%= form_with(model: memo) do |form| %>
-  <% if memo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(memo.errors.count, "error") %> prohibited this memo from being saved:</h2>
+<div class="container">
 
-      <ul>
-        <% memo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div>
+    <%= form_with(model: memo) do |form| %>
+      <% if memo.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(memo.errors.count, "error") %> prohibited this memo from being saved:</h2>
 
-  <div class="card border-primary">
-    <div class="card-body" style="width:100%; margine: 5; padding:5;">
-      <%= form.text_area :content, :rows => 15, style: 'width:100%; resize: none; border:none; outline: none;' , autofocus: true%>
-    </div>
+          <ul>
+            <% memo.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-    <div class="card-footer text-muted" style="display: flex;  justify-content: space-between;">
-      <div>
-        <%= memo.created_at  %>
+      <div class="card border-primary">
+        <div class="card-body" style="width:100%; margine: 5; padding:5;">
+          <%= form.text_area :content, :rows => 15, style: 'width:100%; resize: none; border:none; outline: none;' , autofocus: true,  class: 'js-text_field'%>
+        </div>
+
+        <div class="card-footer text-muted" style="display: flex;  justify-content: space-between;">
+          <div>
+            <%= memo.created_at  %>
+          </div>
+          <div>
+            <%= link_to 'Cancel', memos_path, class: 'btn btn-outline-info',  data: { confirm: 'Are you sure?' } %>
+            <%= form.submit "Save", class: 'btn btn-outline-primary' %>
+          </div>
       </div>
-      <div>
-        <%= link_to 'Cancel', memos_path, class: 'btn btn-outline-info',  data: { confirm: 'Are you sure?' } %>
-        <%= form.submit "Save", class: 'btn btn-outline-primary' %>
-      </div>
-      
-
+    <% end %>
   </div>
-<% end %>
 
+
+  <div>
+    <ul class="js-memos">
+      
+    </ul>
+  </div>
+</div>
 <%= javascript_include_tag 'incrementalSearch' %>
 

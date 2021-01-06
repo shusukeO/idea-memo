@@ -24,12 +24,10 @@ class MemosController < ApplicationController
   # GET /memos/new
   def new
     @memo = Memo.new
-    @memos = Memo.all
   end
 
   # GET /memos/1/edit
   def edit
-    @memos = Memo.all
   end
 
   # POST /memos
