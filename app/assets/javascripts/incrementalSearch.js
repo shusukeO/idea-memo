@@ -4,7 +4,10 @@ $(function () {
     // console.log(memoData);
 
     //textareが空白のときは検索しない
-    if(memoData == "") return;
+    if(memoData == ""){
+      $('.js-memos li').remove();
+      return;
+    } 
 
     $.ajax({
       type: 'GET',
@@ -14,7 +17,7 @@ $(function () {
     })
     .done(function (data) {
 
-      console.log(data);
+      // console.log(data);
 
       $('.js-memos li').remove();
 
