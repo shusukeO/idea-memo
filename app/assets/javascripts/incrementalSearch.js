@@ -1,5 +1,8 @@
 $(function () {
-  $(".js-text_field").on("keyup", function () {
+  $(".js-text_field").on("keyup", function (e) {
+    //Enter以外だったらスルー
+    if (e.keyCode != 13) return;
+
     var memoData = $.trim($(this).val());
     // console.log(memoData);
 
@@ -9,10 +12,10 @@ $(function () {
       return;
     }
 
-    //形態素解析
-    var builder = kuromoji.builder({ dicPath: "/dict" });
+    // console.log("形態素解析スタート");
 
-    builder.build(function (err, tokenizer) {
+    //形態素解析
+    kuromoji.builder({ dicPath: "/dict" }).build(function (err, tokenizer) {
       if (err) {
         console.log(err);
         return;
@@ -20,30 +23,33 @@ $(function () {
 
       var tokens = tokenizer.tokenize(memoData);
 
-      // 結果をカンマ区切りで横並びに出力
-      for (var item in tokens) {
-        var result = "";
-        for (var key in tokens[item]) {
-          if (result.length > 0) result += ",";
-          result += tokens[item][key];
-        }
-        console.log(result);
-      }
-    });
-
-    $.ajax({
-      type: "GET",
-      url: "/searches",
-      data: { memoData: memoData },
-      dataType: "json",
-    }).done(function (data) {
-      // console.log(data);
-
       $(".js-memos li").remove();
 
-      $(data).each(function (i, memo) {
-        $(".js-memos").append(`<li class="memo">${memo.content}</li>`);
-      });
+      for (var item in tokens) {
+        //名詞かつ代名詞ではない単語を検索にかける
+        if (
+          tokens[item]["pos"] == "名詞" &&
+          tokens[item]["pos_detail_1"] != "代名詞"
+        ) {
+          // console.log("データベース検索スタート");
+
+          $.ajax({
+            type: "GET",
+            url: "/searches",
+            data: { memoData: tokens[item]["surface_form"] },
+            dataType: "json",
+          }).done(function (data) {
+            // console.log(data);
+
+            $(data).each(function (i, memo) {
+              $(".js-memos").append(`<li class="memo">${memo.content}</li>`);
+            });
+          });
+        }
+        // console.log(tokens[item]["surface_form"]);
+        // console.log(tokens[item]["pos"]);
+        // console.log(tokens[item]["pos_detail_1"]);
+      }
     });
   });
 });

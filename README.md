@@ -99,3 +99,9 @@ style="display: flex; justify-content: space-between;"
 - kuromoji.js で形態素解析 https://ushinji.hatenablog.com/entry/2017/11/29/225053
 
 - ファイルの階層構造を意識した js スクリプトを書きたければ、そのファイルが含まれるフォルダを assets ではなく、public におく
+
+- kuromoji.js 公式 https://github.com/takuyaa/kuromoji.js
+
+- 形態素解析ライブラリの品詞 ID 一覧 https://taku910.github.io/mecab/posid.html
+
+- js keyCode ごとに処理を分岐 https://qiita.com/nukonucko0v0/items/83d1aadc1f8970fd391f
