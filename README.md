@@ -95,3 +95,5 @@ style="display: flex; justify-content: space-between;"
 - ↑ これにアセットをコンパイルするようにしなければならない https://qiita.com/sanriyochan/items/99d63e8a8691eb29fa4c
 
 - rails + jquery インクリメンタルサーチ https://pikawaka.com/rails/ajax-jquery
+
+- ファイルの階層構造を意識した js スクリプトを書きたければ、そのファイルが含まれるフォルダを assets ではなく、public におく
