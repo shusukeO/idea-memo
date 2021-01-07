@@ -96,4 +96,6 @@ style="display: flex; justify-content: space-between;"
 
 - rails + jquery インクリメンタルサーチ https://pikawaka.com/rails/ajax-jquery
 
+- kuromoji.js で形態素解析 https://ushinji.hatenablog.com/entry/2017/11/29/225053
+
 - ファイルの階層構造を意識した js スクリプトを書きたければ、そのファイルが含まれるフォルダを assets ではなく、public におく
