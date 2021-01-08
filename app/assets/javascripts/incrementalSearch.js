@@ -6,10 +6,8 @@ $(function () {
   var last_memoData = "";
 
   setInterval(function () {
-    // console.log("3秒ごとのチェック");
     memoData = $.trim($(".js-text_field").val());
     if(last_memoData != memoData){
-    // console.log("変更があったので解析");
       last_memoData = memoData;
       mainFunc(memoData);
     }
@@ -34,8 +32,8 @@ $(function () {
       //検索単語リスト
       var words = [];
 
+      //名詞かつキーワードになる品詞を検索単語リストにいれる
       for (var item in tokens) {
-        //名詞かつ代名詞ではない単語を検索単語リストに加える
         if (
           tokens[item]["pos"] == "名詞" &&
           (tokens[item]["pos_detail_1"] == "固有名詞" ||
