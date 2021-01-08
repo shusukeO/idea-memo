@@ -29,9 +29,15 @@ $(function () {
         //名詞かつ代名詞ではない単語を検索にかける
         if (
           tokens[item]["pos"] == "名詞" &&
-          tokens[item]["pos_detail_1"] != "代名詞"
+          (tokens[item]["pos_detail_1"] == "固有名詞" ||
+            tokens[item]["pos_detail_1"] == "一般" ||
+            tokens[item]["pos_detail_1"] == "サ変接続" ||
+            tokens[item]["pos_detail_1"] == "形容動詞語幹" ||
+            tokens[item]["pos_detail_1"] == "副詞可能" ||
+            tokens[item]["pos_detail_1"] == "数")
         ) {
           // console.log("データベース検索スタート");
+          console.log(tokens[item]["pos_detail_1"]);
 
           $.ajax({
             type: "GET",
