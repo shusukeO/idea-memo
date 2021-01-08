@@ -2,20 +2,25 @@ $(function () {
   //既にあるメモの場合、そのメモidをひかえておく
   const memo_id = $(".memo_id").val();
 
-  $(".js-text_field").on("keyup", function (e) {
-    //Enter以外だったらスルー
-    if (e.keyCode != 13) return;
+  var memoData = "";
+  var last_memoData = "";
 
-    var memoData = $.trim($(this).val());
-    // console.log(memoData);
+  setInterval(function () {
+    // console.log("3秒ごとのチェック");
+    memoData = $.trim($(".js-text_field").val());
+    if(last_memoData != memoData){
+    // console.log("変更があったので解析");
+      last_memoData = memoData;
+      mainFunc(memoData);
+    }
+  }, 3000);
 
+  function mainFunc(memoData){
     //textareが空白のときは検索しない
     if (memoData == "") {
       $(".js-memos li").remove();
       return;
     }
-
-    // console.log("形態素解析スタート");
 
     //形態素解析
     kuromoji.builder({ dicPath: "/dict" }).build(function (err, tokenizer) {
@@ -42,10 +47,6 @@ $(function () {
         ) {
           words.push(tokens[item]["surface_form"]);
         }
-
-        // console.log(tokens[item]["surface_form"]);
-        // console.log(tokens[item]["pos"]);
-        // console.log(tokens[item]["pos_detail_1"]);
       }
 
       //検索対象の単語がなければ通信しない
@@ -54,15 +55,12 @@ $(function () {
         return;
       }
 
-      var json = JSON.stringify(words);
-
       $.ajax({
         type: "GET",
         url: "/searches",
-        data: { memoData: json },
+        data: { memoData: JSON.stringify(words) },
         dataType: "json",
       }).done(function (data) {
-        // console.log(data);
         $(".js-memos li").remove();
         $(data).each(function (i, memo) {
           //そのメモ自身の場合はスキップ
@@ -71,5 +69,5 @@ $(function () {
         });
       });
     });
-  });
+  }
 });

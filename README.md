@@ -111,3 +111,5 @@ style="display: flex; justify-content: space-between;"
 - LIKE で複数の値で検索する（gem activerecord-like を使わない方法) https://qiita.com/syukan3/items/1670802ae4c54487fbed
 
 - JSON の扱い https://notepad-blog.com/content/129/
+
+- js の foreach は中で return してあげれば、for 文の continue の処理になる
