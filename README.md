@@ -107,3 +107,7 @@ style="display: flex; justify-content: space-between;"
 - js keyCode ごとに処理を分岐 https://qiita.com/nukonucko0v0/items/83d1aadc1f8970fd391f
 
 - 形態素解析ツールの品詞体系 http://www.unixuser.org/~euske/doc/postag/
+
+- LIKE で複数の値で検索する（gem activerecord-like を使わない方法) https://qiita.com/syukan3/items/1670802ae4c54487fbed
+
+- JSON の扱い https://notepad-blog.com/content/129/

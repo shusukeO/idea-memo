@@ -23,10 +23,11 @@ $(function () {
 
       var tokens = tokenizer.tokenize(memoData);
 
-      $(".js-memos li").remove();
+      //検索単語リスト
+      var words = [];
 
       for (var item in tokens) {
-        //名詞かつ代名詞ではない単語を検索にかける
+        //名詞かつ代名詞ではない単語を検索単語リストに加える
         if (
           tokens[item]["pos"] == "名詞" &&
           (tokens[item]["pos_detail_1"] == "固有名詞" ||
@@ -36,26 +37,33 @@ $(function () {
             tokens[item]["pos_detail_1"] == "副詞可能" ||
             tokens[item]["pos_detail_1"] == "数")
         ) {
-          // console.log("データベース検索スタート");
-          console.log(tokens[item]["pos_detail_1"]);
-
-          $.ajax({
-            type: "GET",
-            url: "/searches",
-            data: { memoData: tokens[item]["surface_form"] },
-            dataType: "json",
-          }).done(function (data) {
-            // console.log(data);
-
-            $(data).each(function (i, memo) {
-              $(".js-memos").append(`<li class="memo">${memo.content}</li>`);
-            });
-          });
+          words.push(tokens[item]["surface_form"]);
         }
+
         // console.log(tokens[item]["surface_form"]);
         // console.log(tokens[item]["pos"]);
         // console.log(tokens[item]["pos_detail_1"]);
       }
+
+      $(".js-memos li").remove();
+
+      //検索対象の単語がなければ通信しない
+      if (words.length == 0) return;
+
+      var json = JSON.stringify(words);
+
+      $.ajax({
+        type: "GET",
+        url: "/searches",
+        data: { memoData: json },
+        dataType: "json",
+      }).done(function (data) {
+        // console.log(data);
+
+        $(data).each(function (i, memo) {
+          $(".js-memos").append(`<li class="memo">${memo.content}</li>`);
+        });
+      });
     });
   });
 });
