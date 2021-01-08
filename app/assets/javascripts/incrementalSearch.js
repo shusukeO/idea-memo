@@ -1,4 +1,7 @@
 $(function () {
+  //既にあるメモの場合、そのメモidをひかえておく
+  const memo_id = $(".memo_id").val();
+
   $(".js-text_field").on("keyup", function (e) {
     //Enter以外だったらスルー
     if (e.keyCode != 13) return;
@@ -62,6 +65,8 @@ $(function () {
         // console.log(data);
         $(".js-memos li").remove();
         $(data).each(function (i, memo) {
+          //そのメモ自身の場合はスキップ
+          if (memo.id == memo_id) return;
           $(".js-memos").append(`<li class="memo">${memo.content}</li>`);
         });
       });
