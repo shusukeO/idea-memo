@@ -105,3 +105,5 @@ style="display: flex; justify-content: space-between;"
 - 形態素解析ライブラリの品詞 ID 一覧 https://taku910.github.io/mecab/posid.html
 
 - js keyCode ごとに処理を分岐 https://qiita.com/nukonucko0v0/items/83d1aadc1f8970fd391f
+
+- 形態素解析ツールの品詞体系 http://www.unixuser.org/~euske/doc/postag/
