@@ -45,10 +45,11 @@ $(function () {
         // console.log(tokens[item]["pos_detail_1"]);
       }
 
-      $(".js-memos li").remove();
-
       //検索対象の単語がなければ通信しない
-      if (words.length == 0) return;
+      if (words.length == 0) {
+        $(".js-memos li").remove();
+        return;
+      }
 
       var json = JSON.stringify(words);
 
@@ -59,7 +60,7 @@ $(function () {
         dataType: "json",
       }).done(function (data) {
         // console.log(data);
-
+        $(".js-memos li").remove();
         $(data).each(function (i, memo) {
           $(".js-memos").append(`<li class="memo">${memo.content}</li>`);
         });
