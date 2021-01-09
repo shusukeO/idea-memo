@@ -11,7 +11,7 @@ $(function () {
       last_memoData = memoData;
       mainFunc(memoData);
     }
-  }, 3000);
+  }, 5000);
 
   function mainFunc(memoData){
     //textareが空白のときは検索しない
@@ -60,11 +60,13 @@ $(function () {
         dataType: "json",
       }).done(function (data) {
         $(".js-memos li").remove();
-        $(data).each(function (i, memo) {
+        var html = "";
+        for(var i = 0; i < data.length; i++){
           //そのメモ自身の場合はスキップ
-          if (memo.id == memo_id) return;
-          $(".js-memos").append(`<li class="memo">${memo.content}</li>`);
-        });
+          if (data[i].id == memo_id) continue;
+          html += `<li class="memo">${data[i].content}</li>`;
+        }
+        $(".js-memos").prepend(html);
       });
     });
   }
