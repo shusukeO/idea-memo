@@ -4,6 +4,8 @@ $(function () {
 
   var memoData = "";
   var last_memoData = "";
+  var jsonWords = "";
+  var last_jsonWords = "";
 
   memoData = $.trim($(".js-text_field").val());
   last_memoData = memoData;
@@ -57,10 +59,14 @@ $(function () {
         return;
       }
 
+      jsonWords = JSON.stringify(words);
+      if(jsonWords == last_jsonWords) return;
+      last_jsonWords = jsonWords;
+
       $.ajax({
         type: "GET",
         url: "/searches",
-        data: { memoData: JSON.stringify(words) },
+        data: { memoData: jsonWords },
         dataType: "json",
       }).done(function (data) {
         if(memo_id != $(".memo_id").val()) return;
