@@ -69,7 +69,6 @@ $(function () {
         data: { memoData: jsonWords },
         dataType: "json",
       }).done(function (data) {
-        if(memo_id != $(".memo_id").val()) return;
         $(".js-memos li").remove();
         var html = "";
         for(var i = 0; i < data.length; i++){
