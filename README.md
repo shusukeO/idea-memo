@@ -113,3 +113,5 @@ style="display: flex; justify-content: space-between;"
 - JSON の扱い https://notepad-blog.com/content/129/
 
 - js の foreach は中で return してあげれば、for 文の continue の処理になる
+
+- RailsのTurbolinksの仕様がやばい。普通のJSの書き方できなくなる。JSが動くページに飛ぶリンクに"data-turbolinks": falseをつけるのが一番簡単だと思う。 https://qiita.com/keitah/items/05f02efe4e11ab2473e8
