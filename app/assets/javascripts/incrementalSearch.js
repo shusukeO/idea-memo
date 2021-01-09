@@ -5,6 +5,10 @@ $(function () {
   var memoData = "";
   var last_memoData = "";
 
+  memoData = $.trim($(".js-text_field").val());
+  last_memoData = memoData;
+  mainFunc(memoData);
+  
   setInterval(function () {
     memoData = $.trim($(".js-text_field").val());
     if(last_memoData != memoData){
@@ -59,6 +63,7 @@ $(function () {
         data: { memoData: JSON.stringify(words) },
         dataType: "json",
       }).done(function (data) {
+        if(memo_id != $(".memo_id").val()) return;
         $(".js-memos li").remove();
         var html = "";
         for(var i = 0; i < data.length; i++){
