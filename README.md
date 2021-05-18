@@ -1,27 +1,13 @@
 # README
+Rails製のメモ帳です。形態素解析を逐次行い、キーワードから関連したメモを表示します。
+![画面収録 2021-05-18 10 29 57 mov](https://user-images.githubusercontent.com/56382189/118576835-4724d000-b7c4-11eb-9397-b6f393214f4a.gif)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## アクセス
 
-- Ruby version
+herokuなので起動までに10秒ほどかかります。  
+https://ideamemo.herokuapp.com/memos
 
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
 
 ## 参考文献
 
